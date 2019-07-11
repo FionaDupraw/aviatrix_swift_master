@@ -1,36 +1,28 @@
-//
 //  Aviatrix.swift
 //  AviatrixApp
 //
 //  Created by Amy Holt on 6/10/18.
 //  Copyright © 2018 Amy Holt. All rights reserved.
 //
-
 import Foundation
-
 class Aviatrix {
     
+    var running = false
+    var author : String
+    var currentLocation = "St. Louis"
+    var distanceTraveled = Int()
     
-    var currentLocation = "St.Louis"
-    //saying who created this plane and airline
-    //I have a property 
-   var author = ""
-    init(myAuthor:String){
+    init(myAuthor : String) {
         author = myAuthor
     }
-    var location = keyAEDestination
-    //this function should tell us if the airplane is running or not
-    var running = false
     
-    //starts the airplane so it means it is running
-    func start() -> Bool { //bool stands for boolean which means true or false
-        return true
+    func start() -> Bool {
         running = true
         return running
     }
     
-    func refuel() {
-        
+    func refuel() -> Double {
+        return 0.0
     }
     
     func flyTo(destination : String) {
@@ -43,7 +35,7 @@ class Aviatrix {
         //I need to get information from the AviatrixData file
         let data = AviatrixData()
         return data.knownDistances[current]![target]!
-        //swift uses ! to mean not, but it also uses it to say I know there is definitely data here
+        //Swift uses ! to mean not, but it also uses it to say I know there is definitely data here
     }
     
     //I want to tell every plane that I create from the Aviatrix class where they can fly
@@ -52,7 +44,7 @@ class Aviatrix {
         //I need to get information from the AviatrixData.swift file
         let data = AviatrixData()
         //I called the AviatrixData class
-       return Array(data.knownDistances.keys)
+        return Array(data.knownDistances.keys)
         //I stored all of the keys or destinations in an Array
     }
 }
